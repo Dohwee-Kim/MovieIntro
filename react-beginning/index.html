@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <span>Total clicks: 0 </span>
-        <button id="btn">Click me</button>
+        <div id="root"></div>
     </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script>
-        let counter = 0;
-        const button = document.getElementById("btn");
-        const span = document.querySelector("span");
-        function handleClick() {
-            console.log("I have been clicked");
-            counter += 1;
-            span.innerText = `Total clicks: ${counter}`;
-        }
-        button.addEventListener("click", handleClick);
+        // 1. "span 이름은 아무거나 사용 가능 
+        const span = React.createElement("span", 
+        {id : "sexy-span", style: {color: "red"}}, 
+        "Hello I am a span");
+
+        const root = document.getElementById("root");
+        ReactDOM.render(span, root) // Render -> show it to the user
+
     </script>
 </html>
