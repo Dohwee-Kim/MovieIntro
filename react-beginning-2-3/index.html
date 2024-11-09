@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script>
+        // 1. "span 이름은 아무거나 사용 가능 
+        const root = document.getElementById("root");
+        const span = React.createElement("h3", 
+        {id : "sexy-span", style: {color: "red"}}, 
+        "Hello I am a span");
+        
+        const btn = React.createElement("button", null, "click me") // new way to create a button
+        
+        // Render 
+        //ReactDOM.render(btn, root) // Render btn inside of the root
+
+        //만약에 버튼과 Span 을 동시에 렌더링 하고 싶다면 어떻게 해야할까 
+        const container = React.createElement("div", null, [span, btn]) 
+
+        ReactDOM.render(container, root) // Render btn inside of the root
+        
+        
+
+    </script>
+</html>
