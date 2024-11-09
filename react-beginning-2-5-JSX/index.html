@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  <!-- 일단 강의니까 이렇게 합니다. 실제로는 이것보다 더 나은 방식이 있어서 이렇게 안씀 !-->
+    
+    <script type="text/babel">
+        // NEW WAY 
+        const root = document.getElementById("root")
+        const Title = (
+            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}> 
+                Hello I'm a title
+            </h3>
+        );
+        
+        const Button = ( 
+            <button 
+                style={{
+                    backgroundColor: "tomato",
+                }}
+                onClick={() => console.log("i am clicked")}
+                >
+                Click me
+            </button>
+        );
+        
+        const container = React.createElement("div", null, [Title, Button])
+        ReactDOM.render(container, root)
+
+        //ReactDOM.render()
+        /* 비교를 위한 주석처리 : OLD WAY
+        const root = document.getElementById("root");
+        const h3 = React.createElement(
+            "h3",                               // 첫번째 arg = root 에 들어갈 HTML 태그 
+            {   id : "sexy-span",               // 두번째 arg = props
+                style: {color: "red"},
+                onMouseEnter: () => console.log('mouse enter'),  // React 핵심 : props 안에 이벤트 리스너를 달 수 있다 !
+            },
+            "Hello I am a span"
+        );
+        
+        const btn = React.createElement(
+            "button", 
+            {
+                onClick: () => console.log('im clicked'),
+                style: {
+                    backgroundColor: "tomato", 
+                }
+            }, 
+            "click me"
+        );
+        
+        const container = React.createElement("div", null, [h3, btn]) 
+        ReactDOM.render(container, root)
+        */
+    </script>
+</html>
