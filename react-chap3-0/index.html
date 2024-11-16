@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>  <!-- 일단 강의니까 이렇게 합니다. 실제로는 이것보다 더 나은 방식이 있어서 이렇게 안씀 !-->
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        
+        let counter =  0;
+
+        function countUp(){
+            counter = counter + 1;
+            ReactDOM.render(<Container />, root);  
+        }
+
+        function render() {
+            ReactDOM.render(<Container />, root);
+        }
+        /*
+        const Container = () => (
+            <div>
+                <h3> Total Clicks : {counter} </h3>
+                <button  onClick={countUp}> Click me </button>
+            </div>  //이렇게 해줘도 밑의꺼랑 같은 리턴
+        );*/ 
+        function Container() {
+            return (
+                <div>
+                <h3> Total Clicks : {counter} </h3>
+                <button  onClick={countUp}> Click me </button>
+                </div>
+            );
+        }
+
+        //ReactDOM.render(<Container />, root); // 렌더가 한번만 되지요. UI 를 리프레쉬 해주지 않아 , 그래서 라인 16에서 다시 그려주는걸 추가해 봅시다
+        render();
+    </script>
+</html>
